@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="CapsuleShape" id=1]
+
+[sub_resource type="CapsuleMesh" id=2]
+mid_height = 2.0
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.823529, 0.270588, 0.270588, 1 )
+roughness = 0.7
+
+[sub_resource type="CapsuleMesh" id=6]
+radius = 0.5
+mid_height = 0.8
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.12549, 0.580392, 0.721569, 1 )
+roughness = 0.41
+
+[node name="KinematicBody" type="KinematicBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Body" type="MeshInstance" parent="CollisionShape"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 8 )
+
+[node name="Glasses" type="MeshInstance" parent="CollisionShape"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.641904, -0.873513 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 5 )

@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/CameraFollow.gd" type="Script" id=1]
+[ext_resource path="res://materials/OrangeGridSpatial.material" type="Material" id=2]
+[ext_resource path="res://materials/DarkGridSpatial.material" type="Material" id=3]
+[ext_resource path="res://scripts/PlayerMovement.gd" type="Script" id=4]
+[ext_resource path="res://environment.tres" type="Environment" id=5]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
+
+[node name="Root" type="Spatial"]
+
+[node name="Props" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="Box 1" type="CSGBox" parent="Props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.88909, 1.5, -6.16197 )
+material = ExtResource( 2 )
+
+[node name="Box 2" type="CSGBox" parent="Props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5093, 1.5, 10.2879 )
+material = ExtResource( 2 )
+
+[node name="Box 3" type="CSGBox" parent="Props"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2321, 1.5, -13.9131 )
+material = ExtResource( 2 )
+
+[node name="Ground" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="Ground2" type="CSGBox" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+use_collision = true
+width = 80.0
+height = 5.0
+depth = 80.0
+material = ExtResource( 3 )
+
+[node name="Ground" type="CSGBox" parent="Ground/Ground2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0 )
+operation = 2
+use_collision = true
+width = 75.0
+height = 4.0
+depth = 75.0
+material = ExtResource( 3 )
+
+[node name="KinematicBody" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50281, 0 )
+script = ExtResource( 4 )
+
+[node name="CamPivot" type="Spatial" parent="."]
+
+[node name="Camera" type="Camera" parent="CamPivot"]
+transform = Transform( 0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -50, 70, 50 )
+projection = 1
+current = true
+size = 30.0
+far = 1500.0
+script = ExtResource( 1 )
+cameraPivotPath = NodePath("..")
+objectToFollowPath = NodePath("../../KinematicBody")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 5 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.532921, -0.676807, 0.507866, 0, 0.600197, 0.799852, -0.846165, -0.426258, 0.319857, -27.1363, 17.1546, 20.3354 )
+light_energy = 1.2
+shadow_enabled = true
