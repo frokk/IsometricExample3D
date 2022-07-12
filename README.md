@@ -14,4 +14,9 @@ https://user-images.githubusercontent.com/75035219/178480893-6cf4a592-ca8f-4e89-
 The Project is licensed under [The Unlicense](https://unlicense.org) which means do whatever the f**k you want, [Click Here](LICENSE) to read the License.
 
 ---
+### References
+- [Reddit](https://www.reddit.com/r/godot/comments/vx954p/godot_3d_isometric_example/)
+- [Itch](https://bearpolar.itch.io/godot-isometric-3d)
+
+---
 # Thanks
