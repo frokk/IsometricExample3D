@@ -22,10 +22,13 @@ jobs:
         relative_project_path: ./src/
         archive_output: true
 
-    - name: Create release
-      uses: softprops/action-gh-release@v0.1.14
+    - name: Update/Create Continous Release
+      uses: "marvinpinto/action-automatic-releases@latest"
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        generate_release_notes: true
-        tag_name: 'latest'
-        files: ${{ steps.export.outputs.archive_directory }}/*
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: false
+        title: "Latest Release"
+        files: |
+          ${{ steps.export.outputs.archive_directory }}/
+
