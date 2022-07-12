@@ -13,6 +13,12 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: List
+      run: ls .
+
+    - name: List2
+      run: ls src
+
     - name: Godot Export
       uses: firebelley/godot-export@v4.1.0
       with:
