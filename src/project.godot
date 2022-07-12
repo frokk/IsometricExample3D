@@ -20,7 +20,7 @@ config/icon="res://icon.png"
 window/size/width=1280
 window/size/height=800
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="expand"
 
 [input]
 
@@ -71,4 +71,6 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/filters/msaa=1
+quality/filters/use_debanding=true
 environment/default_environment="res://environment.tres"
