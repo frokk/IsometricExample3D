@@ -13,6 +13,9 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Change Directory
+      run: cd src/
+
     - name: Godot Export
       uses: firebelley/godot-export@v4.1.0
       with:
