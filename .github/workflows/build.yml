@@ -1,0 +1,31 @@
+name: Build Release Action
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  Build-Release:
+    runs-on: ubuntu-latest
+    name: Export Game
+    steps:
+    - name: Checkout v3
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Godot Export
+      uses: firebelley/godot-export@v4.1.0
+      with:
+        # Defining all the required inputs
+        godot_executable_download_url: https://github.com/godotengine/godot/releases/download/3.4.4-stable/Godot_v3.4.4-stable_linux_headless.64.zip
+        godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/3.4.4-stable/Godot_v3.4.4-stable_export_templates.tpz
+        relative_project_path: ./
+        archive_output: true
+
+    - name: Create release
+      uses: softprops/action-gh-release@v0.1.14
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        generate_release_notes: true
+        tag_name: ${{ steps.tag_version.outputs.TAG_VERSION }}
+        files: ${{ steps.export.outputs.archive_directory }}/*
