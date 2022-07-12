@@ -13,16 +13,13 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Change Directory
-      run: cd src/
-
     - name: Godot Export
       uses: firebelley/godot-export@v4.1.0
       with:
         # Defining all the required inputs
         godot_executable_download_url: https://github.com/godotengine/godot/releases/download/3.4.4-stable/Godot_v3.4.4-stable_linux_headless.64.zip
         godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/3.4.4-stable/Godot_v3.4.4-stable_export_templates.tpz
-        relative_project_path: ./
+        relative_project_path: ./src
         archive_output: true
 
     - name: Create release
