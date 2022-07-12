@@ -20,9 +20,10 @@ jobs:
         godot_executable_download_url: https://github.com/godotengine/godot/releases/download/3.4.4-stable/Godot_v3.4.4-stable_linux_headless.64.zip
         godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/3.4.4-stable/Godot_v3.4.4-stable_export_templates.tpz
         relative_project_path: ./src/
+        relative_export_path: ./export/
         archive_output: true
 
-    - name: Update/Create Continous Release
+    - name: Update/Create Release
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -30,5 +31,5 @@ jobs:
         prerelease: false
         title: "Latest Release"
         files: |
-          ${{ steps.export.outputs.archive_directory }}/
+          export/
 
