@@ -16,7 +16,6 @@ There is no license, this is all yours.
 ---
 ### References
 - [Reddit](https://www.reddit.com/r/godot/comments/vx954p/godot_3d_isometric_example/)
-- [Itch](https://bearpolar.itch.io/godot-isometric-3d)
 
 ---
 # Thanks
