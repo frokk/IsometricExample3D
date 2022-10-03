@@ -1,7 +1,7 @@
 # IsometricExample3D
 Isometric 3D Game Example With Player Controller in Godot
 
-[Download Now](https://github.com/pegvin/IsometricExample3D/releases/tag/latest) or [Play Online](https://bearpolar.itch.io/godot-isometric-3d)
+[Download Now](https://github.com/pegvin/IsometricExample3D/releases/tag/latest)
 
 ---
 ### Preview
